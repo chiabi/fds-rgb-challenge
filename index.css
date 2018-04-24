@@ -1,18 +1,54 @@
 @charset "UTF-8";
-body {
-  width: 100%;
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700,800|Source+Code+Pro');
+html, body {
   height: 100%;
+  margin: 0;
   overflow: hidden;
+  background-color: #232323;
+  font-family: 'Montserrat', sans-serif;
+  color: #fff;
+}
+.title {
+  padding: 0.6em 0;
+  margin: 0;
+  font-size: 1.1em;
+  line-height: 2.2em;
+  text-align: center;
+  font-weight: normal;
+  background-color: steelblue;
+}
+.title span {
+  display: block;
+  font-size: 3em;
+}
+.score-box {
+  margin: 0.8em;
+  font-size: 1.1em;
+  text-align: center;
+}
+.game {
+  height: calc(100% - 135px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.color-code {
+  text-align: center;
+  font-size: 1.6em;
+  font-family: 'Source Code Pro', monospace;
 }
 .color-chip {
   display: flex;
   justify-content: center;
   list-style-type: none;
+  margin: 3.3em 0;
+  padding: 0;
 }
 .box {
   width: 50px;
   height: 50px;
-  margin: 0 10px;
+  margin: 0 12px;
   cursor: pointer;
   border-radius: 100%;
   transition: transform 0.5s ease;
@@ -22,25 +58,33 @@ body {
 }
 .modal {
   display: none;
-}
-.modal.show {
-  /* display: block; */
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  color: #fff;
+  font-size: 3.2em;
+  font-weight: 800;
+  text-shadow: 1px 1px 2px #999;
+}
+.modal.show {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: #fff;
-  font-size: 3em;
+}
+.modal .total {
+  margin-bottom: 2em;
+  font-size: 0.5em;
 }
 .modal .close {
-  margin-top: 2em;
-  padding: 0.5em 0.8em;
+  margin-top: 3em;
+  padding: 0.3em 0.5em;
   color: #fff;
   background: transparent;
   border: 2px solid #fff;
+  font-size: 0.38em;
+  font-weight: 700;
+  border-radius: 5px;
 }
