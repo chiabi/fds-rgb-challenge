@@ -30,28 +30,32 @@ function newStage () {
 
 boxes.forEach((el, index) => {
   el.addEventListener('click', () => {
+    el.classList.add('large');
     if(index === correctAnswer) {
-      alert('맞았다');
       document.querySelector('.modal.right').classList.add('show');
       score++;
     } else {
-      alert('틀렸다');
       document.querySelector('.modal.wrong').classList.add('show');
+      document.querySelector('.modal.wrong .score').textContent = score;
       score = 0;
     }
     scoreEl.textContent = score;
-    el.classList.add('selected');
-    newStage();
   })
 });
 
 document.querySelector('.modal.right .close').addEventListener('click', () => {
   document.querySelector('.modal.right').classList.remove('show');
-  document.querySelector('.box.selected').classList.remove('.selected');
+  boxes.forEach(el => {
+    el.classList.remove('large');
+  })
+  newStage();
 });
 document.querySelector('.modal.wrong .close').addEventListener('click', () => {
   document.querySelector('.modal.wrong').classList.remove('show');
-  document.querySelector('.box.selected').classList.remove('.selected');
+  boxes.forEach(el => {
+    el.classList.remove('large');
+  })
+  newStage();
 });
 
 newStage();
