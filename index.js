@@ -1,7 +1,3 @@
-// function randomColorCode() {
-//   const rgb = new Array(3).fill(null);
-//   return `rgb(${rgb.map(item => Math.floor(Math.random() * 256))})`;
-// }
 function randomNumber() {
   return Math.floor(Math.random() * 256);
 }
@@ -43,19 +39,26 @@ boxes.forEach((el, index) => {
   })
 });
 
-document.querySelector('.modal.right .close').addEventListener('click', () => {
-  document.querySelector('.modal.right').classList.remove('show');
-  boxes.forEach(el => {
-    el.classList.remove('large');
-  })
-  newStage();
-});
-document.querySelector('.modal.wrong .close').addEventListener('click', () => {
-  document.querySelector('.modal.wrong').classList.remove('show');
-  boxes.forEach(el => {
-    el.classList.remove('large');
-  })
-  newStage();
+// document.querySelector('.modal.wrong').addEventListener('click', (e) => {
+//   console.log(e.target, e.currentTarget);
+//   document.querySelector('.modal.wrong').classList.remove('show');
+//   boxes.forEach(el => {
+//     el.classList.remove('large');
+//   })
+//   newStage();
+// });
+
+// 더 줄여보기
+document.querySelectorAll('.modal').forEach(el => {
+  el.addEventListener('click', (e) => {
+    if(e.target === el.querySelector('.close')) {
+      e.currentTarget.classList.remove('show');
+      boxes.forEach(el => {
+        el.classList.remove('large');
+      });
+      newStage();
+    }
+  });
 });
 
 newStage();
