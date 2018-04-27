@@ -8,6 +8,12 @@ html, body {
   font-family: 'Montserrat', sans-serif;
   color: #fff;
 }
+.main {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 .title {
   padding: 0.6em 0;
   margin: 0;
@@ -21,13 +27,13 @@ html, body {
   display: block;
   font-size: 3em;
 }
-.score-box {
+.score-wrap {
   margin: 0.8em;
   font-size: 1.1em;
   text-align: center;
 }
-.game {
-  height: calc(100% - 135px);
+.color-wrap {
+  flex-grow: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
